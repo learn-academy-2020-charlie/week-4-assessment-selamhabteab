@@ -55,10 +55,10 @@ class Functions < Bike
     def ring_bell
         @bell = "Bring-Bring!"
     end
-    def pedal_faster speed #need help here
+    def pedal_faster speed 
         @speedometer += speed
     end
-    def break break #need help here
+    def break break #bring it up in office hours
         @speedometer = ''
         if @speedometer >= 2
             @speedometer -= 1
@@ -66,7 +66,7 @@ class Functions < Bike
             @speedometer= 0
         end
 
-        # def break break #need help here
+        # def break break #self notes
         #     if @speedometer <= speed
         #     @speedometer = 0
         #     else
