@@ -35,7 +35,6 @@ function shuffle(array) {
 // console.log(shuffle(collections))   //-->length=1
 // console.log(shuffle(collections))   //-->length=0; "The array is empty"
 //Received help from: https://stackoverflow.com/questions/6274339/how-can-i-shuffle-an-array
-
 //------------------------------------------------------------------------
 
 // (2) Create a function that takes in an array of numbers and returns the sum of all the numbers cubed.
@@ -48,17 +47,29 @@ var sum2 = [0, 5, 10]
 //0+125+1000=1125
 
 const cube = (array) => {
-    let cubeArr= array.map (value=>{
-        return value=value*value*value
-        //I can't figure out how to code for the sum
+    let total=0
+    array.map (value=>{
+        return total += (value=value*value*value)
     })
-    return cubeArr
+    return total
 }
 // console.log(cube(sum1));
 // console.log(cube(sum2));
-
-//------------------------------------------------------------------------
-
+//------- Cynthia's Method -------
+// const cubeSum = (array) => {
+//     return array.map (value => (Math.pow (value, 3))).reduce(a,b)=> a+b)      
+//     }
+// console.log(cube(sum1));
+// console.log(cube(sum2));
+//------- Erica's Method -------
+// const cubedSum2 = (arr) => {
+//     let total = 0
+//     arr.map(value=> total += parseInt(value**3))
+//     return total
+// }
+// console.log(cube(sum1));
+// console.log(cube(sum2));
+// -----------------------------------------------------------------
 // (3) Create a function that takes an array of numbers and returns an array of the minimum and maximum numbers in that order.
 
 var nums1 = [3, 56, 90, -8, 0, 23, 6]
@@ -74,20 +85,20 @@ const minMax = (array) =>{
     //nums1=[-8, 0, 3, 6, 23, 56, 90]
     //nums2=[-59, 5, 8, 9, 24, 109,]
     newArr.push(array[0])
-    newArr.push(array[array.length-1]) //i don't understand how this gives the last element
+    newArr.push(array[array.length-1])
     return newArr
 }
 // console.log(minMax(nums1));
-//console.log(minMax(nums2));
+// console.log(minMax(nums2));
 // ------------------- Using min/max built-in method ---------------------
 const arrMinMax = (array) => {
     newArr1=[]
-    newArr1.push(Math.min(...array))
+    newArr1.push(Math.min(...array)) //note: used spread operator
     newArr1.push(Math.max(...array))
     return newArr1
 }
 // console.log(arrMinMax(nums1));
-//console.log(arrMinMax(nums2));
+// console.log(arrMinMax(nums2));
 
 //------------------------------------------------------------------------
 // (4) Create a function that takes in a string and returns a string with every other letter capitalized.
@@ -96,9 +107,26 @@ var testString1 = "albatross"
 // Expected output: "aLbAtRoSs"
 var testString2 = "jabberwocky"
 // Expected output: "jAbBeRwOcKy"
+//pseudocode: Create a function
+// 1. turn string into an array
+// 2. Iterate through array  
+// 3. Use conditional to draw out odd vs even index 
+// 4. Use uppercase/lowercase method
+// 5. join array into string
 
-//I DID NOT GET A CHANCE TO COMPLETE DURING CLASS/WEEKEND
-
+const caps = (string) => {
+    let strArr= string.toLowerCase().split("")
+		newArr= strArr.map ((value, index) => {
+			if (index%2 !==0) {
+                return value.toUpperCase()
+            } else {
+                return value
+            } 
+})
+        return newArr.join("")
+}
+console.log(caps(testString1));
+console.log(caps(testString2));
 
 //------------------------------------------------------------------------
 // (5) Create a function that takes in two arrays as arguments and returns one array with no duplicate values. STRETCH: Use the spread operator.
@@ -107,4 +135,32 @@ var arr1 = [3, 7, 10, 5, 4, 3, 3]
 var arr2 = [7, 8, 2, 3, 1, 5, 4]
 // Expected output: [3, 7, 10, 5, 4, 8, 2, 1]
 
-//I DID NOT GET A CHANCE TO COMPLETE DURING CLASS/WEEKEND
+var arr1 = [3, 7, 10, 5, 4, 3]
+var arr2 = [7, 8, 2, 1, 5, 4]
+deDup1 = (arr1, arr2) => {
+  let combo = arr1.concat(arr2)
+  let noDups = combo.filter((value, index) => {
+    return combo.indexOf(value) === index
+  })
+  return noDups
+}
+console.log(deDup1(arr1, arr2))
+// Expected output -> [3, 7, 10, 5, 4, 8, 2, 1]
+
+
+
+
+
+// Self Notes for office hours: How to use map for Q. 4
+// const caps = (string) => {
+//     let strArr= string.toLowerCase().split("")
+// 		strArr.map ((value, index) => {
+// 			if (index%2 !==0) {
+//                 value.toUpperCase()
+//             } else {
+//             } 
+// })
+//         return strArr.join("")
+// }
+// console.log(caps(testString1));
+// console.log(caps(testString2));

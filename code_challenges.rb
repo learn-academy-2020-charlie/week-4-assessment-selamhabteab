@@ -8,19 +8,21 @@ fullArr2 = ['hello', 7, 23, -823, false, 78, nil, '67', 6, 'Number']
 # Expected output: [-823, 7, 23]
 
 # pseudocode:
-# 1. Create function to take in array and return only numbers          
-# 2. filter through new array of numbers to return only odd numbers    
-# 3. Use the built-in method to sort the number array from least to greatest     
+# 1. Create function to take in array and return only numbers
+# 2. filter through new array of numbers to return only odd numbers
+# 3. Use the built-in method to sort the number array from least to greatest
 
 def odd_numb array
     new_arr= array.select! do |value|
         value.class == Integer
     end
-    new_arr.select { |value| value % 2 != 0 }.sort 
+    new_arr.select { |value| value % 2 != 0 }.sort
 end
 p odd_numb fullArr1
-p odd_numb fullArr2 
+p odd_numb fullArr2
 
+def odd_num array
+  array.select do {||}
 
 # (2) Create a class called Bike that is initialized with a model, wheels, and a frame size. The default number of wheels is 2. Create a get_info method that returns a sentence with all the data from the bike object.
 
@@ -38,7 +40,7 @@ my_bike = Bike.new 'Trek', 168
 p my_bike.get_info
 # Expected output example: 'The Trek bike has 2 wheels and a 168cm frame.'
 
-# ----------------------Practicing Class Inheritance--------------------- 
+# ----------------------Practicing Class Inheritance---------------------
 
 # (3) Add a bell to the bike class and create a method that will ring the bell when the method is called.
 # (4) Add a speedometer to the Bike class. The speed should be initialized at 0.
@@ -53,8 +55,8 @@ class Functions < Bike
     def ring_bell
         @bell = "Bring-Bring!"
     end
-    def pedal_faster fast #need help here
-        @speedometer = '' || @speedometer += 2
+    def pedal_faster speed #need help here
+        @speedometer += speed
     end
     def break break #need help here
         @speedometer = ''
@@ -63,6 +65,14 @@ class Functions < Bike
         else
             @speedometer= 0
         end
+
+        # def break break #need help here
+        #     if @speedometer <= speed
+        #     @speedometer = 0
+        #     else
+        #         @speedometer -= speed
+        #     end
+
     end
     def speed
         "Your #{@model} is speeding at #{@speedometer}"
