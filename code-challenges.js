@@ -19,7 +19,7 @@ function shuffle(array) {
         let temp = array[mixedArr]
         array[mixedArr] = array[index]
         array[index] = temp 
-        //I don't understand how this code is shuffling the array but it works
+        //self note: request visual to further understand this shuffling method 
     }
     array.splice(0, 1)
     if (array.length>0){
@@ -146,21 +146,3 @@ deDup1 = (arr1, arr2) => {
 }
 console.log(deDup1(arr1, arr2))
 // Expected output -> [3, 7, 10, 5, 4, 8, 2, 1]
-
-
-
-
-
-// Self Notes for office hours: How to use map for Q. 4
-// const caps = (string) => {
-//     let strArr= string.toLowerCase().split("")
-// 		strArr.map ((value, index) => {
-// 			if (index%2 !==0) {
-//                 value.toUpperCase()
-//             } else {
-//             } 
-// })
-//         return strArr.join("")
-// }
-// console.log(caps(testString1));
-// console.log(caps(testString2));

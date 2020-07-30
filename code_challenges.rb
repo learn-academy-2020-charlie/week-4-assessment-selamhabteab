@@ -21,9 +21,6 @@ end
 p odd_numb fullArr1
 p odd_numb fullArr2
 
-def odd_num array
-  array.select do {||}
-
 # (2) Create a class called Bike that is initialized with a model, wheels, and a frame size. The default number of wheels is 2. Create a get_info method that returns a sentence with all the data from the bike object.
 
 class Bike
@@ -55,24 +52,18 @@ class Functions < Bike
     def ring_bell
         @bell = "Bring-Bring!"
     end
-    def pedal_faster speed 
+    def pedal_faster speed
         @speedometer += speed
+        "You're speeding at #{@speedometer}"
     end
-    def break break #bring it up in office hours
-        @speedometer = ''
+    def break
+        @speedometer
         if @speedometer >= 2
             @speedometer -= 1
+            "You decreased your speed to #{@speedometer} "
         else
             @speedometer= 0
         end
-
-        # def break break #self notes
-        #     if @speedometer <= speed
-        #     @speedometer = 0
-        #     else
-        #         @speedometer -= speed
-        #     end
-
     end
     def speed
         "Your #{@model} is speeding at #{@speedometer}"
@@ -81,10 +72,8 @@ end
 my_bike_functions = Functions.new 'Yamaha', 158
 p my_bike_functions.ring_bell
 p my_bike_functions.pedal_faster 10
-p my_bike_functions.brake 12
+p my_bike_functions.break
+p my_bike_functions.break
 p my_bike_functions.speed
 p my_bike_functions.get_info
 
-# Expected output example: my_bike.speed => 0
-# Expected output example: my_bike.pedal_faster 10 => 10
-# Expected output example: my_bike.brake 15 => 0
